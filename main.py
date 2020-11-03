@@ -24,15 +24,15 @@ def check_age(user_age, game_age):
 
 def check_genre(user_genres, game_genres):
     if user_genres == ['']: return True
-    return True if any(uGenre in game_genres for uGenre in user_genres) else False
+    return True if any(u_genre in game_genres for u_genre in user_genres) else False
 
 def check_category(user_category, game_category):
     if user_category == ['']: return True
-    return True if any(uCategory in game_category for uCategory in user_category) else False
+    return True if any(u_category in game_category for u_category in user_category) else False
 
 def check_platform(user_platform, game_platform):
     if user_platform == ['']: return True
-    return True if any(uPlatform in game_platform for uPlatform in user_platform) else False
+    return True if any(u_platform in game_platform for u_platform in user_platform) else False
 
 def check_price(user_price, game_price):
     if user_price == '': return True
