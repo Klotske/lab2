@@ -18,68 +18,60 @@ def get_num_value(message):
 
 
 def check_year(user_year, game_year):
-    if user_year == '' or game_year <= int(user_year):
-        return True
-    else:
-        return False
+    return user_year == '' or game_year <= int(user_year)
 
 
 def check_age(user_age, game_age):
-    if user_age == '' or game_age <= int(user_age):
-        return True
-    else:
-        return False
+    return user_age == '' or game_age <= int(user_age)
 
 
 def check_genre(user_genres, game_genres):
-    if (user_genres == [''] or
-            any(u_genre in game_genres for u_genre in user_genres)):
-        return True
-    else:
-        return False
+    return (user_genres == [''] or
+            any(u_genre in game_genres for u_genre in user_genres))
 
 
 def check_category(user_category, game_category):
-    if (user_category == [''] or
-            any(u_category in game_category for u_category in user_category)):
-        return True
-    else:
-        return False
+    return (user_category == [''] or
+            any(u_category in game_category for u_category in user_category))
 
 
 def check_platform(user_platform, game_platform):
-    if (user_platform == [''] or
-            any(u_platform in game_platform for u_platform in user_platform)):
-        return True
-    else:
-        return False
+    return (user_platform == [''] or
+            any(u_platform in game_platform for u_platform in user_platform))
 
 
 def check_price(user_price, game_price):
-    if user_price == '' or game_price <= float(user_price):
-        return True
-    else:
-        return False
+    return user_price == '' or game_price <= float(user_price)
 
 
 def check_rating(user_rating, game_rating):
-    if user_rating == '' or game_rating >= float(user_rating):
-        return True
-    else:
-        return False
+    return user_rating == '' or game_rating >= float(user_rating)
 
 
 print('Вас приветсвтвует мастер поиска игр!')
-print('Для того, чтобы мы смогли посоветовать вам игры, Вам необхожимо пройти краткий опрос.')
-print('Для выбора нескольких вариантов, введите их через запятую. Чтобы пропустить вопрос нажмите Enter')
+print('Пройдите краткий опрос, чтобы мы смогли посоветовать вам игры.')
+print('Вводите ответы через запятую. Чтобы пропустить - нажмите Enter.')
 
-years = get_num_value('Какой максимальный год выпуска игры вас интересует? ')
-genres = get_text_value('Какой жанр игр вас интересует (Action, RPG)? ').split(',')
-age = get_num_value('Укажите минимальное ограничение по возрасту: ')
-categories = get_text_value('Укажите категорию игры (Multiplayer, Online): ').split(',')
-platforms = get_text_value('На какую платформу планируется установка (windows, mac, linux)? ').split(',')
-prices = get_num_value('Укажите максимальную цену игры ($): ')
-ratings = get_num_value('Укажите минимальный процент положительных отзывов: ')
+message = 'Какой максимальный год выпуска игры вас интересует? '
+years = get_num_value(message)
+
+message = 'Какой жанр игр вас интересует (Action, RPG)? '
+genres = get_text_value(message).split(',')
+
+message = 'Укажите минимальное ограничение по возрасту: '
+age = get_num_value(message)
+
+message = 'Укажите категорию игры (Multiplayer, Online): '
+categories = get_text_value(message).split(',')
+
+message = 'На какую платформу планируется установка (windows, mac, linux)? '
+platforms = get_text_value(message).split(',')
+
+message = 'Укажите максимальную цену игры ($): '
+prices = get_num_value(message)
+
+message = 'Укажите минимальный процент положительных отзывов: '
+ratings = get_num_value(message)
 
 
 with open('steam.csv', encoding='utf-8') as f, \
