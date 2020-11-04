@@ -86,7 +86,7 @@ with open('steam.csv', encoding='utf-8') as f, \
         game_category = row[8].lower().split(';')
         game_genres = row[9].lower().split(';')
         game_price = float(row[17])
-        game_rating = float(int(row[12])/(int(row[12])+int(row[13])))
+        game_rating = float(int(row[12])/(int(row[12])+int(row[13])))*100
 
         if (check_year(years, game_year)
                 and check_genre(genres, game_genres)
